@@ -1,0 +1,16 @@
+.body{
+  background-color:#ced6e0;
+}
+.h1{
+  text-align: center;
+}
+ @media (min-width: 1200px) {
+  .container{
+      max-width:70%;
+ }
+}
+.jumbotron{
+  background-color: #7f8fa6;
+  color: aliceblue;
+
+}

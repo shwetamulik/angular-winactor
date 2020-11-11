@@ -1,0 +1,42 @@
+
+  <!-- <img src="assets/images/word-logo.PNG" alt="logo" class="center"> -->
+<div class="card"  >
+<h5 class="card-header"><b>Sign In</b></h5>
+<div class="card-body">
+<form name="form"  [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+  <div class="form-group">
+    <!-- <label for="username">Username</label> -->
+    <input type="text" class="form-control" formControlName="username" placeholder="Username"
+    [ngClass]="{'is-invalid':form.get('username').touched && form.get('username').invalid,'is-valid': form.get('username').touched && !form.get('username').invalid  }">
+    <div class="invalid-feedback">
+     Username is required
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="password"  class="form-control" formControlName="password" placeholder="Password"
+    pattern="(?=^.{6,15}$)(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$"
+    [ngClass]="{'is-invalid': form.get('password').touched && form.get('password').invalid ,'is-valid': form.get('password').touched && !form.get('password').invalid  }"
+               required>
+               <div *ngIf="form.get('password').invalid && (form.get('password').touched)"
+              class="invalid-feedback">
+               <div *ngIf="form.get('password').errors.required">
+                Password is required
+              </div>
+              <div *ngIf="form.get('password').errors.pattern && (form.get('password').touched)">
+               It expects atleast 1 small-case letter, 1 Capital letter,
+                  1 digit, 1 special character and the length should be between 6-15 characters.
+                </div>
+          </div>
+          <small *ngIf="!form.valid" id="emailHelp" class="form-text text-muted" style="margin-left: 1rem;">It expects  6-15 characters , atleast  1 Capital letter,
+            1 digit, 1 special character.
+          </small>
+  </div>
+  <div class="form-group">
+    <button  class="btn btn-primary" style="align-self: center; height:50px;
+    width:200px; " [disabled]="!form.valid" ><i class="fa fa-fw fa-user"></i><b>Login</b></button>
+  </div>
+</form>
+
+</div>
+</div>
+

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Winactor-Project"
+    }
+  },
+  "defaultProject": "Winactor-Project",
+  "cli": {
+    "analytics": false
+  }
 }
